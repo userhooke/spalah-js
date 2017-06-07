@@ -1,0 +1,67 @@
+<script>
+class Wallet {
+  //   constructor(name, currency, platform, os, description, price, sourceCode){
+  //       this.name = name;
+  //       this.currency = currency;
+  //       this.platform = platform;
+  //       this.os = os;
+  //       this.description = description;
+  //       this.price = price;
+  //       this.sourceCode = sourceCode;
+  // }
+  
+  // getSourceCode() {
+  //   return this.sourceCode;
+  // }
+  
+  // static createMobile(name, currency, os, description, price, sourceCode) {
+  //   return new Wallet(name, currency, "mobile", os, description, price, sourceCode)
+  // }
+  // static createDesktop(name, currency, os, description, price, sourceCode) {
+  //   return new Wallet(name, currency, "desktop", os, description, price, sourceCode)
+  // }
+  // static createWeb(name, currency, os, description, price, sourceCode) {
+  //   return new Wallet(name, currency, "web", os, description, price, sourceCode)
+  // }
+  // static createHardware(currency, os, description, price, sourceCode) {
+  //   return new Wallet(name, currency, "hardware", os, description, price, sourceCode)
+  // }
+  static createOpenSource(walletData) {
+    let wallet = new Wallet;
+    wallet.name = walletData.name;
+    wallet.currency = walletData.currency;
+    wallet.platform = walletData.platform;
+    wallet.os = walletData.os;
+    wallet.description = walletData.description;
+    wallet.sourceCode = walletData.sourceCode;
+
+    wallet.showSourceCode = function() {
+        return this.sourceCode;
+    }
+    return wallet;
+  }
+  static createClosedSource(walletData) {
+    let wallet = new Wallet;
+    wallet.name = walletData.name;
+    wallet.currency = walletData.currency;
+    wallet.platform = walletData.platform;
+    wallet.os = walletData.os;
+    wallet.description = walletData.description;
+    wallet.price = walletData.price;
+
+    wallet.showPrice = function() {
+        return this.price;
+    }
+    return wallet;
+  }
+}
+
+let electrum = Wallet.createOpenSource({
+    name: "Electrum",
+    currency: "Bitcoins",
+    platform: "Desktop, Mobile",
+    os: "Windows, MacOs, Linux, Android",
+    description: "Electrum's focus is speed and simplicity, with low resource usage. It uses remote servers that handle the most complicated parts of the Bitcoin system, and it allows you to recover your wallet from a secret phrase.",
+    sourceCode: "https://github.com/spesmilo/electrum"
+})
+</script>
