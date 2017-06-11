@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wallet Class Proto - HW1</title>
-</head>
-<body>
-    
-<script>
-
 var productsArr = [];
 
 class Wallet {
@@ -112,7 +102,3 @@ console.log("BTC: " + search("BTC", productsArr));
 console.log("Web: " + search("Web", productsArr));
 console.log("Android: " + search("Android", productsArr));
 
-</script>
-
-</body>
-</html>
