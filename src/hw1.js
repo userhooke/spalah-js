@@ -69,5 +69,5 @@ function search(searchBy) {
   return wallets.filter(wallet => _.toArray(wallet).some(item => item.toString().match(searchBy)));
 }
 
-console.log(wallets);
-console.log(search("XRP"));
+//console.log(wallets);
+console.log(search("XRP")); 

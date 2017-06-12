@@ -3,12 +3,21 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.html",
+  "watch": {
+    "debug": "src/**/*.js",
+    "node": "src/**/*.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect-brk src/hw1.js",
+    "node": "node src/hw1.js",
+    "watch": "npm-watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "npm-watch": "^0.1.9"
   }
 }
