@@ -60,7 +60,7 @@ Wallet.createClosedSource(
 
 
 // Search function
-function search(searchBy) {
+var search = function(searchBy) {
   if (!searchBy) {
     return;
   }
@@ -68,6 +68,37 @@ function search(searchBy) {
   searchBy = new RegExp(searchBy, 'i');
   return wallets.filter(wallet => _.toArray(wallet).some(item => item.toString().match(searchBy)));
 }
+// Search function end
 
-//console.log(wallets);
-console.log(search("XRP")); 
+// old search 
+var oldSearch = function(searchTerm, productsArr) {
+  // создаем временный массив для результатов посика внутри функции
+  let tempArr = [];
+  // перебираем массив объектов
+  productsArr.forEach((item, i, productsArr) => {
+  // в каждом объекте смотрим ключи
+    for (let key in item) {
+  // регулярка для разделения строк в значениях ключа по , и проблелу
+       let re = /\s|,\s/gi;
+      // проверка для отсечения методов - ругается split
+       if (typeof item[key] == "string") {
+         // сплитом делим строку на массив слов, который перебираем форычом
+       let m = item[key].split(re).forEach((item2) => {
+         // если слово в массиве совпадает с искомым словом - пихаем во временный массив
+          if (item2 == searchTerm)  {
+          tempArr.push(item); 
+          } 
+       });
+         
+       }
+
+    }
+  })
+  return tempArr;
+  
+}
+// old search end
+
+module.exports.wallets = wallets;
+module.exports.search = search;
+module.exports.oldSearch = oldSearch;

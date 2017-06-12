@@ -5,11 +5,11 @@
   "main": "index.html",
   "watch": {
     "debug": "src/**/*.js",
-    "node": "src/**/*.js"
+    "test": "src/**/*.js"
   },
   "scripts": {
-    "debug": "node --inspect-brk src/hw1.js",
-    "node": "node src/hw1.js",
+    "debug": "node --inspect-brk src/index.js",
+    "test": "node --inspect src/index.js",
     "watch": "npm-watch"
   },
   "author": "",
