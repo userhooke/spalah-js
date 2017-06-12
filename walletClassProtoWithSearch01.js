@@ -1,7 +1,10 @@
+"use strict";
+
+var _ = require('underscore');
+
 var wallets = [];
 
 class Wallet {
-
   constructor(name, currency, platform, os, description, sourceCode, price) {
     this.name = name;
     this.currency = currency;
@@ -14,7 +17,7 @@ class Wallet {
 
   static createOpenSource(name, currency, platform, os, description, sourceCode, price) {
     let wallet = new Wallet(name, currency, platform, os, description, sourceCode, 0);
-    wallets.push(Wallet);
+    wallets.push(wallet);
     return wallet;
   }
   static createClosedSource(name, currency, platform, os, description, sourceCode, price) {
@@ -66,5 +69,5 @@ function search(searchBy) {
   return wallets.filter(wallet => _.toArray(wallet).some(item => item.toString().match(searchBy)));
 }
 
-
+console.log(wallets);
 console.log(search("XRP"));
