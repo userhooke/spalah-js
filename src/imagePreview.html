@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>image preview test</title>
+  <style>
+
+  </style>
+</head>
+<body>
+<div id="pics-block"></div>  
+
+  <script>
+    let pics = ["https://cdn.pastemagazine.com/www/system/images/photo_albums/archer-memes-/large/archer-meme-13.JPG",
+                "http://s2.quickmeme.com/img/44/44856d74bd225692a79c6751f5497e26df246d07cee29a3eccb6d7200ebf81ef.jpg",
+                "http://www.vitamin-ha.com/wp-content/uploads/2014/10/Archer-Memes6.jpg",
+                "http://img1.tfilm.co/data/screen/or/38700-002.jpg"];
+
+    function PhotoPreview(div) {
+      let cache = [];
+      let photoBlock = document.getElementById(div);
+      function imageLoad(imageBox) {
+                  let image = cache[index];
+                  imageBox.innerHTML = image.outerHTML;
+                }
+
+      return {
+        load: () => {
+          cache = pics.map(src => {
+            let pic = new Image();
+            pic.src = src;
+            return pic;
+          });
+        }, //end of load
+
+        main: () => {
+          let mainImgContainer = document.createElement('div');
+          mainImgContainer.classList.add('main-img-container'); 
+
+        }, // end of main
+        
+        secondary: () => {
+          let secondaryImgContainer = document.createElement("div");
+          secondaryImgContainer.classList.add("secondary-img-container");
+
+        }, // end of secondary
+
+        preview: () => {
+        
+        } // end of preview
+      } // end of return
+    } // end of PhotoPreview
+
+    let photoPreview = new PhotoPreview("pics-block");
+    
+  
+ 
+  </script>
+</body>
+</html>
+
