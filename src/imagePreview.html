@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <title>image preview test</title>
   <style>
-
+    .main-img-container img {
+      max-width: 400px;
+    }
+    .secondary-img-container img {
+      max-width: 200px;
+      border: 5px solid transparent;
+    }
   </style>
 </head>
 <body>
@@ -16,44 +22,40 @@
                 "http://www.vitamin-ha.com/wp-content/uploads/2014/10/Archer-Memes6.jpg",
                 "http://img1.tfilm.co/data/screen/or/38700-002.jpg"];
 
-    function PhotoPreview(div) {
       let cache = [];
-      let photoBlock = document.getElementById(div);
-      function imageLoad(imageBox) {
-                  let image = cache[index];
-                  imageBox.innerHTML = image.outerHTML;
-                }
+      let photoBlock = document.getElementById("pics-block");
+      let index = 0;
 
-      return {
-        load: () => {
-          cache = pics.map(src => {
-            let pic = new Image();
-            pic.src = src;
-            return pic;
-          });
-        }, //end of load
 
-        main: () => {
-          let mainImgContainer = document.createElement('div');
-          mainImgContainer.classList.add('main-img-container'); 
+      let mainImgContainer = document.createElement('div');
+      mainImgContainer.classList.add('main-img-container'); 
+      photoBlock.appendChild(mainImgContainer);
 
-        }, // end of main
-        
-        secondary: () => {
-          let secondaryImgContainer = document.createElement("div");
-          secondaryImgContainer.classList.add("secondary-img-container");
+      let secondaryImgContainer = document.createElement("div");
+      secondaryImgContainer.classList.add("secondary-img-container");
+      photoBlock.appendChild(secondaryImgContainer);
+          
+      cache = pics.map(src => {
+        let pic = new Image();
+        pic.src = src;
+        return pic
+        });
 
-        }, // end of secondary
+      
+      mainImgContainer.innerHTML = cache[0].outerHTML;
 
-        preview: () => {
-        
-        } // end of preview
-      } // end of return
-    } // end of PhotoPreview
+      for (let i = 0; i<cache.length; i++) {
+        secondaryImgContainer.appendChild(cache[i]);
+        cache[i].onclick = () => {
+        mainImgContainer.innerHTML = cache[i].outerHTML;
+        cache.forEach((item) => {
+          item.style = "";
+        });
+        cache[i].style = "border: 5px solid yellow";
+        }
+      }
 
-    let photoPreview = new PhotoPreview("pics-block");
     
-  
  
   </script>
 </body>
