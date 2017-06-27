@@ -43,14 +43,15 @@
 
       
       mainImgContainer.innerHTML = cache[0].outerHTML;
+      cache[0].style = "border: 5px solid yellow";
 
       for (let i = 0; i<cache.length; i++) {
         secondaryImgContainer.appendChild(cache[i]);
         cache[i].onclick = () => {
-        mainImgContainer.innerHTML = cache[i].outerHTML;
         cache.forEach((item) => {
           item.style = "";
         });
+        mainImgContainer.innerHTML = cache[i].outerHTML;
         cache[i].style = "border: 5px solid yellow";
         }
       }
