@@ -18,6 +18,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "jshint": "^2.9.5",
     "npm-watch": "^0.1.9"
   }
 }
