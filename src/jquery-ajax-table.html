@@ -47,7 +47,7 @@
         $('table').append('<thead>').append('<tbody>');
         $('thead').append('<tr class="header">');
 
-        let headerArr = ['username', 'email'];
+        let headerArr = ['Name', 'Username', 'Email', 'Website'];
 
         $(headerArr).each((index, value) => {
           $('<th>').append(value).appendTo('.header');
@@ -55,8 +55,12 @@
 
         $(jsonarr).each((index, value) => {
           $('tbody').append( $('<tr>')
+            .append( $('<td>').append(value.name) )
             .append( $('<td>').append(value.username) )
             .append( $('<td>').append(value.email) )
+            .append( $('<td>').append( $('<a>', {
+              'href': `https://${value.website}`
+              }).append(value.website) ) )
           );
         });
 
