@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jquery Ajax table homework</title>
+  <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+  </style>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(() => {  // jquery onload
+
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/users', false);
+      xhr.send();
+
+      if (xhr.status != 200) {
+        $('body').append('<h1>');
+        $('h1').append('Error: ' + xhr.status);
+
+      } else {
+        let jsonarr = JSON.parse(xhr.responseText);
+
+        console.log(jsonarr);
+
+        $('body').append('<table>');
+        $('table').append('<thead>').append('<tbody>');
+        $('thead').append('<tr class="header">');
+
+        let headerArr = ['username', 'email'];
+
+        $(headerArr).each((index, value) => {
+          $('<th>').append(value).appendTo('.header');
+        });
+
+        $(jsonarr).each((index, value) => {
+          $('tbody').append( $('<tr>')
+            .append( $('<td>').append(value.username) )
+            .append( $('<td>').append(value.email) )
+          );
+        });
+
+
+      } // end of else
+
+    }) // end of JQuery onload
+  </script>
+</head>
+<body>
+
+ 
+</body>
+</html>
