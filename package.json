@@ -1,35 +1,24 @@
 {
-  "name": "spalah-js-homeworks",
-  "version": "0.0.1",
+  "name": "spalah-js",
+  "version": "1.0.0",
   "description": "",
-  "main": "index.html",
-  "watch": {
-    "debug": "src/**/*.js",
-    "test": "src/**/*.js"
-  },
+  "main": "index.js",
   "scripts": {
-    "debug": "node --inspect-brk src/index.js",
-    "test": "node --inspect src/index.js",
-    "watch": "npm-watch",
-    "build": "webpack-dev-server",
-    "build:prod": "webpack -p"
+    "i": "npm i && cd client && bower i && cd ../server && npm i",
+    "server": "node server/app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userhooke/spalah-js.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "help": "^3.0.2",
-    "underscore": "^1.8.3"
+  "bugs": {
+    "url": "https://github.com/userhooke/spalah-js/issues"
   },
-  "devDependencies": {
-    "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.4",
-    "file-loader": "^0.11.2",
-    "html-loader": "^0.4.5",
-    "html-webpack-plugin": "^2.29.0",
-    "jshint": "^2.9.5",
-    "npm-watch": "^0.1.9",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+  "homepage": "https://github.com/userhooke/spalah-js#readme",
+  "dependencies": {
+    "bower": "^1.8.0"
   }
 }

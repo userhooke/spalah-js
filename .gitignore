@@ -3,4 +3,5 @@ node_modules
 .idea
 .vs
 dist
-*.lock
+bower_components
+npm-debug.log
