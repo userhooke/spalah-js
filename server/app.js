@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3000;
+const PORT = 3000;
+const IP = "http://localhost";
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, function () {
-  console.log('Server is listening on port ' + port)
+app.listen(PORT, () => {
+  console.log('Server is listening ' + IP + ":" + PORT)
 })
