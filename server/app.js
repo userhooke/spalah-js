@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-const PORT = 3000;
-const IP = "http://localhost";
+const PORT = process.env.PORT;
+const IP = process.env.IP;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
