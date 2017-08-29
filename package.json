@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/userhooke/spalah-js#readme",
   "dependencies": {
-    "bower": "^1.8.0"
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.7"
   }
 }
